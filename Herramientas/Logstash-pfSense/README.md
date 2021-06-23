@@ -1,4 +1,7 @@
 # logstash-pfsense
+
+Fuente: https://github.com/patrickjennings/logstash-pfsense
+
 Logstash configuration for pfSense syslog events. Gives a nice dashboard for displaying blocked events from the firewall.
 
 Includes a modified logstash configuration to work with the latest pfSense release v2.4 and Elastic services release v5.5.2.
