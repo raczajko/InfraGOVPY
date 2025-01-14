@@ -2,7 +2,7 @@
 cd $blupdate
 echo "$(pwd)"
 echo "creando branch"
-fecha="$(date +"%Y%m%d%H")"
+fecha="$(date +"%Y%m%d%H%M")"
 git checkout -b $fecha origin/main 
 
 echo "refrescando listas..."
@@ -27,3 +27,4 @@ git pull
 git rebase $fecha
 git push origin main
 git pull origin main
+git branch -D $fecha
