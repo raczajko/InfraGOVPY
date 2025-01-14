@@ -26,7 +26,8 @@ cat sources/blocklist_de_all.txt >> todos.txt
 cat sources/ci-badguys.txt >> todos.txt
 
 echo "eliminando duplicados"
-sort -u todos.txt > listado_full.txt
+sort -u todos.txt > todos_unicos.txt
+grep -v '#' > listado_full.txt
 rm todos.txt
 
 echo "actualizando repositorio..."
