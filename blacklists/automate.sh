@@ -18,9 +18,11 @@ tail -n +34 firehol_level1.netset >> todos.txt
 tail -n +32 firehol_level2.netset >> todos.txt
 tail -n +35 firehol_level3.netset >> todos.txt
 cat ci-badguys.txt >> todos.txt
+sort -u todos.txt > listado_full.txt
+rm todos.txt
 
 echo "actualizando repositorio..."
-git add .
+git add -A
 git commit -m "update"$fecha
 git checkout main
 git pull
