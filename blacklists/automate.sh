@@ -28,8 +28,7 @@ cat sources/ci-badguys.txt >> todos.txt
 echo "eliminando duplicados"
 sort -u todos.txt > todos_unicos.txt
 grep -v '#' > listado_full.txt
-rm todos.txt
-rm todos_unicos.txt
+rm -f todos.txt todos_unicos.txt 
 
 echo "generando listado para Forti...."
 split -a 3 -l 300000 listado_full.txt listado_forti_
