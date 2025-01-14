@@ -7,6 +7,11 @@ Listas
 * ci-badguys.txt 	  -> BLN_cins_army 		-> https://cinsarmy.com/list/ci-badguys.txt
 * abuseipdb-s100-30d.ipv4 -> AbuseIPDB, ultimos 30 dias -> https://github.com/borestad/blocklist-abuseipdb/raw/refs/heads/main/abuseipdb-s100-30d.ipv4
 
+Firehol
+* Level 1 -> https://iplists.firehol.org/?ipset=firehol_level1 -> https://iplists.firehol.org/files/firehol_level1.netset
+* Level 2 -> https://iplists.firehol.org/?ipset=firehol_level2 -> https://iplists.firehol.org/files/firehol_level2.netset
+* Level 3 -> https://iplists.firehol.org/?ipset=firehol_level3 -> https://iplists.firehol.org/files/firehol_level3.netset
+
 WIP
 #https://urlhaus.abuse.ch/downloads/hostfile/
 #http://www.malwaredomainlist.com/hostslist/hosts.txt
