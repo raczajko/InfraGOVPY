@@ -33,6 +33,9 @@ rm -f todos.txt todos_unicos.txt
 echo "generando listado para Forti...."
 split -a 3 -l 300000 listado_full.txt listado_forti_
 
+echo "generando md5sum de listado_full.txt"
+md5sum listado_full.txt > listado_full.txt.md5
+
 echo "actualizando repositorio..."
 git add -A
 git commit -m "update"$fecha
