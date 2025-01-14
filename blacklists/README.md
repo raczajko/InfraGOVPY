@@ -13,6 +13,6 @@ Firehol
 * Level 3 -> https://iplists.firehol.org/?ipset=firehol_level3 -> https://iplists.firehol.org/files/firehol_level3.netset
 * Abusers -> https://iplists.firehol.org/?ipset=firehol_abusers_30d -> https://iplists.firehol.org/files/firehol_abusers_30d.netset
 * BotScout -> https://iplists.firehol.org/?ipset=botscout_7d -> https://iplists.firehol.org/files/botscout_7d.ipset
-
+* Blocklist.de -> https://iplists.firehol.org/?ipset=blocklist_de -> wget https://lists.blocklist.de/lists/all.txt
 WIP
 #Incorporar fuentes de https://github.com/romainmarcoux/malicious-ip/tree/main
