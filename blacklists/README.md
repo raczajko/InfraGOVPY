@@ -1,4 +1,4 @@
-Listas negras recomendadas por MITIC
+Listas negras recomendadas en base a discusiones comunidad Infra GOV PY
 
 El plan es ir refrescando cada 24 horas de manera automatica y excluir las IP's declaradas como limpias por parte de COPACO
 
