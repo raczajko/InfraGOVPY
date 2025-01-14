@@ -13,4 +13,6 @@ wget https://iplists.firehol.org/files/firehol_level3.netset
 echo "actualizando repositorio..."
 git add .
 git commit -m "update"$fecha
-git push origin $fecha
+git checkout main
+git merge --ff-only origin/$fecha
+git push origin main
