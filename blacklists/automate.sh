@@ -16,6 +16,7 @@ wget https://iplists.firehol.org/files/botscout_7d.ipset -O sources/botscout_7d.
 wget https://lists.blocklist.de/lists/all.txt -O sources/blocklist_de_all.txt
 
 echo "generando bundle..."
+#listado_full
 tail -n +14 sources/abuseipdb-s100-30d.ipv4 | cut -d '#' -f 1 > todos.txt
 tail -n +34 sources/firehol_level1.netset >> todos.txt
 tail -n +32 sources/firehol_level2.netset >> todos.txt
@@ -24,12 +25,20 @@ tail -n +32 sources/firehol_abusers_30d.netset >> todos.txt
 tail -n +37 sources/botscout_7d.ipset >> todos.txt
 cat sources/blocklist_de_all.txt >> todos.txt
 cat sources/ci-badguys.txt >> todos.txt
-
 echo "eliminando duplicados"
 sort -u todos.txt > todos_unicos.txt
 grep -v '#' todos_unicos.txt > listado_full.txt
 rm -f todos.txt todos_unicos.txt 
-grep -v '/' listado_full.txt > listado_fail2ban.txt
+#listado_fail2ban
+tail -n +14 sources/abuseipdb-s100-30d.ipv4 | cut -d '#' -f 1 > todosf2b.txt
+tail -n +35 sources/firehol_level3.netset >> todosf2b.txt
+tail -n +37 sources/botscout_7d.ipset >> todosf2b.txt
+cat sources/blocklist_de_all.txt >> todosf2b.txt
+cat sources/ci-badguys.txt >> todosf2b.txt
+grep -v '/' todosf2b.txt > todosf2bip.txt
+sort todosf2bip.txt | unique -u | tee listado_fail2ban.txt
+
+
 
 echo "generando listado para Forti...."
 split -a 3 -l 300000 listado_full.txt listado_forti_
