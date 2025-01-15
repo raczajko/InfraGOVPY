@@ -29,12 +29,14 @@ echo "eliminando duplicados"
 sort -u todos.txt > todos_unicos.txt
 grep -v '#' todos_unicos.txt > listado_full.txt
 rm -f todos.txt todos_unicos.txt 
+grep -v '/' listado_full.txt > listado_ispconfig.txt
 
 echo "generando listado para Forti...."
 split -a 3 -l 300000 listado_full.txt listado_forti_
 
-echo "generando md5sum de listado_full.txt"
+echo "generando md5sum de los listados..."
 md5sum listado_full.txt > listado_full.txt.md5
+md5sum listado_ispconfig.txt > listado_ispconfig.txt.md5
 
 echo "actualizando repositorio..."
 git add -A
