@@ -36,9 +36,8 @@ tail -n +37 sources/botscout_7d.ipset >> todosf2b.txt
 cat sources/blocklist_de_all.txt >> todosf2b.txt
 cat sources/ci-badguys.txt >> todosf2b.txt
 grep -v '/' todosf2b.txt > todosf2bip.txt
-sort todosf2bip.txt | unique -u | tee listado_fail2ban.txt
-
-
+sort todosf2bip.txt | uniq -u > listado_fail2ban.txt
+rm -f todosf2b.txt todosf2bip.txt
 
 echo "generando listado para Forti...."
 split -a 3 -l 300000 listado_full.txt listado_forti_
