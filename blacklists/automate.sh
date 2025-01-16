@@ -6,6 +6,7 @@ else
   exit 1
 fi
 
+source /etc/profile
 cd $blupdate
 echo "$(pwd)"
 echo "creando branch"
