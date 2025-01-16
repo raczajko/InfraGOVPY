@@ -1,4 +1,11 @@
 #!/bin/bash
+if command -v iprange >&2; then
+  echo se detecto iprange
+else
+  echo favor instalar firehol/iprange
+  exit 1
+fi
+
 cd $blupdate
 echo "$(pwd)"
 echo "creando branch"
@@ -26,18 +33,17 @@ tail -n +37 sources/botscout_7d.ipset >> todos.txt
 cat sources/blocklist_de_all.txt >> todos.txt
 cat sources/ci-badguys.txt >> todos.txt
 echo "eliminando duplicados"
-sort -u todos.txt > todos_unicos.txt
-grep -v '#' todos_unicos.txt > listado_full.txt
-rm -f todos.txt todos_unicos.txt 
+iprange -J todos.txt > listado_full.txt
+rm -f todos.txt
+
 #listado_fail2ban
 tail -n +14 sources/abuseipdb-s100-30d.ipv4 | cut -d '#' -f 1 > todosf2b.txt
 tail -n +35 sources/firehol_level3.netset >> todosf2b.txt
 tail -n +37 sources/botscout_7d.ipset >> todosf2b.txt
 cat sources/blocklist_de_all.txt >> todosf2b.txt
 cat sources/ci-badguys.txt >> todosf2b.txt
-grep -v '/' todosf2b.txt > todosf2bip.txt
-sort todosf2bip.txt | uniq -u > listado_fail2ban.txt
-rm -f todosf2b.txt todosf2bip.txt
+iprange --print-single-ips todosf2b.txt > listado_fail2ban.txt
+rm -f todosf2b.txt
 
 echo "generando listado para Forti...."
 split -a 3 -l 300000 listado_full.txt listado_forti_
