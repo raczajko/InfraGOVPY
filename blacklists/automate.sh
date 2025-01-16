@@ -1,11 +1,4 @@
 #!/bin/bash
-if command -v iprange >&2; then
-  echo se detecto iprange
-else
-  echo favor instalar firehol/iprange
-  exit 1
-fi
-
 source /etc/profile
 cd $blupdate
 echo "$(pwd)"
