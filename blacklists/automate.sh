@@ -27,7 +27,7 @@ tail -n +37 sources/botscout_7d.ipset >> todos.txt
 cat sources/blocklist_de_all.txt >> todos.txt
 cat sources/ci-badguys.txt >> todos.txt
 echo "eliminando duplicados"
-iprange --print-ranges todos.txt > listado_full.txt
+/usr/local/bin/iprange --print-ranges todos.txt > listado_full.txt
 
 #listado_fail2ban
 tail -n +14 sources/abuseipdb-s100-30d.ipv4 | cut -d '#' -f 1 > todosf2b.txt
@@ -35,7 +35,7 @@ tail -n +35 sources/firehol_level3.netset >> todosf2b.txt
 tail -n +37 sources/botscout_7d.ipset >> todosf2b.txt
 cat sources/blocklist_de_all.txt >> todosf2b.txt
 cat sources/ci-badguys.txt >> todosf2b.txt
-iprange --print-single-ips todosf2b.txt > listado_fail2ban.txt
+/usr/local/bin/iprange --print-single-ips todosf2b.txt > listado_fail2ban.txt
 
 echo "generando listado para Forti...."
 split -a 3 -l 300000 listado_full.txt listado_forti_
