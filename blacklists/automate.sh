@@ -15,6 +15,7 @@ wget https://iplists.firehol.org/files/firehol_level3.netset -O sources/firehol_
 wget https://iplists.firehol.org/files/firehol_abusers_30d.netset -O sources/firehol_abusers_30d.netset
 wget https://iplists.firehol.org/files/botscout_7d.ipset -O sources/botscout_7d.ipset
 wget https://lists.blocklist.de/lists/all.txt -O sources/blocklist_de_all.txt
+rm -Rf listado*
 
 echo "generando bundle..."
 #listado_full
