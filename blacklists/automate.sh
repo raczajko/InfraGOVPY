@@ -2,6 +2,7 @@
 source /etc/profile
 cd $blupdate
 echo "$(pwd)"
+git pull
 echo "creando branch"
 fecha="$(date +"%Y%m%d%H%M")"
 git checkout -b $fecha origin/main 
@@ -18,6 +19,8 @@ wget https://lists.blocklist.de/lists/all.txt -O sources/blocklist_de_all.txt
 rm -Rf listado*
 
 echo "generando bundle..."
+#agregando feed IOC
+cat ../feeds/legacyhunt-24h.csv | cut -d ',' -f 1 >> infra_govpy.txt
 #listado_full
 tail -n +14 sources/abuseipdb-s100-30d.ipv4 | cut -d '#' -f 1 > todos.txt
 tail -n +34 sources/firehol_level1.netset >> todos.txt
