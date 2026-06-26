@@ -22,7 +22,8 @@ echo "generando bundle..."
 #agregando feed IOC
 cat ../feeds/legacyhunt-24h.csv | cut -d ',' -f 1 >> infra_govpy.txt
 #listado_full
-tail -n +14 sources/abuseipdb-s100-7d.ipv4 | cut -d '#' -f 1 > todos.txt
+tail -n +2 sources/iocs-infra-govpy.txt > todos.txt
+tail -n +14 sources/abuseipdb-s100-7d.ipv4 | cut -d '#' -f 1 >> todos.txt
 tail -n +34 sources/firehol_level1.netset >> todos.txt
 tail -n +32 sources/firehol_level2.netset >> todos.txt
 #tail -n +35 sources/firehol_level3.netset >> todos.txt
